@@ -1,0 +1,23 @@
+a {
+  text-decoration: underline;
+}
+
+ol,
+ul {
+  margin: .5em 0 .5em 1em;
+  padding-left: 1em;
+}
+
+ol {
+  list-style: decimal;
+}
+
+ul {
+  list-style: disc;
+}
+
+ul.list-unstyled, ol.list-unstyled {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}

@@ -1,0 +1,7 @@
+.dropdown-menu-link {
+  @apply px-4 block text-default leading-loose no-underline;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .1);
+  }
+}

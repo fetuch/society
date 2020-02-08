@@ -1,0 +1,8 @@
+.card {
+  @apply bg-card p-5 rounded-lg shadow;
+  color: var(--text-default-color)
+}
+
+.card-header {
+  @apply font-normal text-xl text-default py-4 -ml-5 mb-4 border-l-4 pl-4;
+}

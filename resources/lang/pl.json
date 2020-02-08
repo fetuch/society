@@ -1,0 +1,7 @@
+{
+  "default": "członek zwyczajny",
+  "resident": "rezydent",
+  "active": "aktywny",
+  "warned": "ostrzeżony",
+  "suspended": "zawieszony"
+}

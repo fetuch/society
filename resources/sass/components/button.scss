@@ -1,0 +1,21 @@
+.button{
+  @apply py-1 px-3 bg-button text-white rounded text-sm;
+
+  &.is-outlined {
+    @apply bg-card border text-accent;
+    box-shadow: none !important;
+  }
+
+  &.is-danger {
+    @apply bg-orange-500;
+    box-shadow: 0 2px 3px 0 #ed8936 !important;
+  }
+
+  .theme-light & {
+    box-shadow: 0 2px 7px 0 #b0eaff;
+  }
+
+  .theme-dark & {
+    box-shadow: 0 2px 7px 0 #00658b;
+  }
+}
