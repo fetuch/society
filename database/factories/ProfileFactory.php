@@ -9,5 +9,6 @@ $factory->define(\App\Models\Profile::class, function (Faker $faker) {
     'user_id' => factory(\App\User::class),
     'first_name' => $faker->firstName,
     'last_name' => $faker->lastName,
+    'joined_at' => date('Y-m-d'),
   ];
 });
