@@ -1,11 +1,9 @@
 <?php
-Route::name('admin.')
-  ->prefix('admin')
-  ->group(function () {
-    Route::resource('users', 'Admin\UsersController');
+Route::name('admin.')->prefix('admin')->group(function () {
+        Route::resource('users', 'Admin\UsersController');
 
-      Route::get('membership-payments/dashboard/{period?}', 'Admin\MembershipPaymentsController@dashboard');
+        Route::get('membership-payments/dashboard/{period?}', 'Admin\MembershipPaymentsDashboardController@index');
 
-      Route::resource('membership-payments', 'Admin\MembershipPaymentsController');
-  });
+        Route::resource('membership-payments', 'Admin\MembershipPaymentsController');
+    });
 
