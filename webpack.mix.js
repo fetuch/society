@@ -13,9 +13,13 @@ const tailwindcss = require('tailwindcss');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css')
-  .options({
-    processCssUrls: false,
-    postCss: [tailwindcss('./tailwind.config.js')],
-  })
-  .version();
+    .sass('resources/sass/app.scss', 'public/css')
+    .options({
+        processCssUrls: false,
+        postCss: [tailwindcss('./tailwind.config.js')],
+    })
+    .browserSync('society.local');
+
+if (mix.inProduction()) {
+    mix.version();
+}

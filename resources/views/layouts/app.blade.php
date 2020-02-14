@@ -19,10 +19,10 @@
 <div id="app">
   <nav class="bg-header">
     <div class="container px-4 mx-auto">
-      <div class="flex justify-between items-center py-2">
+      <div class="flex justify-between items-center">
         <h1>
           <a class="navbar-brand" href="{{ url('/') }}">
-            Logo
+              <img src="{{ asset('img/logo-ptoitr.png') }}" alt="">
           </a>
         </h1>
 
@@ -36,33 +36,19 @@
                 <a class="button no-underline" href="{{ route('register') }}">{{ __('Register') }}</a>
               @endif
             @else
-              <theme-switcher class="hidden md:block"></theme-switcher>
-
               <dropdown align="right" width="200px">
                 <template v-slot:trigger>
                   <button class="flex items-center text-default text-sm focus:outline-none">
-                    <img
-                      width="35"
-                      class="rounded-full mr-3"
-                      src="{{ gravatar_url(auth()->user()->email) }}"
-                      alt="Avatar">
-
-                    {{ auth()->user()->name }}
+                    {{ auth()->user()->email }}
                   </button>
                 </template>
 
                 <template v-slot:default>
-                  <a class="dropdown-menu-link" href="{{ route('timesheets.index') }}">Timesheets</a>
-
-                  <div class="dropdown-menu-link py-2 md:hidden">
-                    <theme-switcher></theme-switcher>
-                  </div>
-
                   <span
                     class="dropdown-menu-link cursor-pointer"
                     onclick="javascript: document.querySelector('#logout-form').submit()"
                   >
-                    Logout
+                    Wyloguj
                   </span>
 
                   <form id="logout-form" method="POST" action="/logout">
