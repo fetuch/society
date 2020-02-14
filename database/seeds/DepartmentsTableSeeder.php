@@ -11,12 +11,9 @@ class DepartmentsTableSeeder extends Seeder
      */
     public function run()
     {
-      \App\Models\Department::create(['name' => 'Oddział Dolnośląśki']);
-
-      \App\Models\Department::create(['name' => 'Oddział Małopolski']);
-
-      \App\Models\Department::create(['name' => 'Oddział Pomorski']);
-
-      \App\Models\Department::create(['name' => 'Oddział Warmińsko-Mazurski']);
+        factory(\App\Models\Department::class)->create(['name' => 'Oddział Dolnośląśki']);
+        factory(\App\Models\Department::class)->create(['name' => 'Oddział Małopolski']);
+        factory(\App\Models\Department::class)->create(['name' => 'Oddział Pomorski']);
+        factory(\App\Models\Department::class)->create(['name' => 'Oddział Warmińsko-Mazurski']);
     }
 }

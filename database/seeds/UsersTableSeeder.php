@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'suspended' => '2018',
         ];
 
-        factory(\App\User::class, 500)
+        factory(\App\User::class, 50)
             ->create()
             ->each(function ($user) use ($periods) {
                 $user->createProfile(factory(\App\Models\Profile::class)->raw([
