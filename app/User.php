@@ -11,10 +11,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable;
+    use Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -52,12 +53,11 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @param $data
      * @return Model
      */
-    public function createProfile($data)
+    public function createProfile()
     {
-        return $this->profile()->create($data);
+        return $this->profile()->create();
     }
 
     public function department()

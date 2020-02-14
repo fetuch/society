@@ -20,9 +20,9 @@ class UsersTableSeeder extends Seeder
         factory(\App\User::class, 50)
             ->create()
             ->each(function ($user) use ($periods) {
-                $user->createProfile(factory(\App\Models\Profile::class)->raw([
+                $user->profile->fill(factory(\App\Models\Profile::class)->raw([
                     'user_id' => $user->id
-                ]));
+                ]))->save();
 
                 if ($user->membership_status)
                 {
@@ -33,5 +33,11 @@ class UsersTableSeeder extends Seeder
                     ]);
                 }
         });
+
+        tap(factory(\App\User::class)->create([
+            'email' => 'rano@lptg.pl',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+        ]))->assignRole('Super Admin');
     }
 }

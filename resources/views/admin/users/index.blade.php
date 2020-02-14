@@ -21,7 +21,7 @@
           <tbody>
             @foreach($users as $user)
               <tr>
-                <td>{{ $user->profile->last_name }} {{ $user->profile->first_name }}</td>
+                <td>{{ $user->profile? $user->profile->last_name . ' ' . $user->profile->first_name : '' }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->department ? $user->department->name : ''}}</td>
                 <td>{{ __($user->membership_status) }}</td>
