@@ -1,54 +1,48 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @include('partials.datatables')
 
 @section('content')
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-12">
-        <table id="table" class="table table-bordered table-hover display">
-          <thead>
-          <tr>
+    <table id="table" class="table table-bordered table-hover display">
+        <thead>
+        <tr>
             <th>Imie i nazwisko</th>
             <th>Email</th>
             <th>Oddział</th>
             <th>Status</th>
             <th>Rodzaj</th>
             <th>Akcje</th>
-          </tr>
-          </thead>
+        </tr>
+        </thead>
 
-          <tbody>
-            @foreach($users as $user)
-              <tr>
+        <tbody>
+        @foreach($users as $user)
+            <tr>
                 <td>{{ $user->profile? $user->profile->last_name . ' ' . $user->profile->first_name : '' }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->department ? $user->department->name : ''}}</td>
                 <td>{{ __($user->membership_status) }}</td>
                 <td>{{ __($user->membership_kind) }}</td>
                 <td>
-                  <a href="">Zobacz</a>
-                  <a href="">Edytuj</a>
-                  <a href="">Usuń</a>
+                    <a href="">Zobacz</a>
+                    <a href="">Edytuj</a>
+                    <a href="">Usuń</a>
                 </td>
-              </tr>
-            @endforeach
-          </tbody>
+            </tr>
+        @endforeach
+        </tbody>
 
-          <tfoot>
-          <tr>
+        <tfoot>
+        <tr>
             <th>Imie i nazwisko</th>
             <th>Email</th>
             <th>Oddział</th>
             <th>Status</th>
             <th>Rodzaj</th>
             <th>Akcje</th>
-          </tr>
-          </tfoot>
-        </table>
-      </div>
-    </div>
-  </div>
+        </tr>
+        </tfoot>
+    </table>
 @endsection
 
 @section('footer')
