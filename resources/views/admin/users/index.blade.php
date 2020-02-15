@@ -24,9 +24,9 @@
                 <td>{{ __($user->membership_status) }}</td>
                 <td>{{ __($user->membership_kind) }}</td>
                 <td>
-                    <a href="">Zobacz</a>
-                    <a href="">Edytuj</a>
-                    <a href="">Usuń</a>
+                    <a href=""><i class="far fa-eye"></i></a>
+                    <a href=""><i class="far fa-edit"></i></a>
+                    <a href=""><i class="far fa-trash-alt"></i></a>
                 </td>
             </tr>
         @endforeach

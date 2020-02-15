@@ -1,0 +1,13 @@
+@import 'themes/light';
+@import 'themes/dark';
+
+@tailwind base;
+
+@import 'overrides';
+
+@tailwind components;
+
+@import 'components/dropdown';
+@import 'components/wysiwyg';
+
+@tailwind utilities;

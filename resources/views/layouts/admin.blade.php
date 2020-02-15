@@ -14,18 +14,11 @@
 
     <meta name="keywords" content="">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="{{ mix('css/admin.css') }}" rel="stylesheet">
+
     <script src="{{ mix('js/app.js') }}" defer></script>
-
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-
-    <!--Replace with your tailwind.css once created-->
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Lato');
-
-        html {
-            font-family: 'Lato', sans-serif;
-        }
-    </style>
 
     @yield('head')
 </head>
@@ -36,7 +29,7 @@
     @include('admin._includes.header')
 
     <main class="container w-full flex flex-wrap mx-auto px-2 pt-8 lg:pt-16 mt-16">
-        <div class="w-full lg:w-1/5 lg:px-2 text-xl text-gray-800 leading-normal">
+        <div class="w-full lg:w-1/5 text-xl text-gray-800 leading-normal">
             @include('admin._includes.sidebar')
         </div>
 
@@ -47,10 +40,10 @@
 
         <!--Back link -->
         <div class="w-full lg:w-4/5 lg:ml-auto text-base md:text-sm text-gray-500 px-4 py-6">
-            <span class="text-base text-purple-500 font-bold">&lt;</span>
+            <span class="text-base text-default">&lt;</span>
             <a
                 href="{{ url()->previous() }}"
-                class="text-base md:text-sm text-purple-500 font-bold no-underline hover:underline"
+                class="text-sm text-default no-underline hover:underline"
             >
                 Wróć
             </a>
