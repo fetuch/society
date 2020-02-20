@@ -1,72 +1,81 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- CSRF Token -->
-  <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-  <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
 
-  <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
-  @yield('head')
+    @yield('head')
 </head>
 <body class="theme-light bg-page">
 <div id="app">
-  <nav class="bg-header">
-    <div class="container px-4 mx-auto">
-      <div class="flex justify-between items-center">
-        <h1>
-          <a class="navbar-brand" href="{{ url('/') }}">
-              <img src="{{ asset('img/logo-ptoitr.png') }}" alt="">
-          </a>
-        </h1>
+    <nav class="bg-header">
+        <div class="container px-4 mx-auto">
+            <div class="flex justify-between items-center">
+                <h1>
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img src="{{ asset('img/logo-ptoitr.png') }}" alt="">
+                    </a>
+                </h1>
 
-        <div>
-          <div class="flex items-center navbar-nav ml-auto">
-            <!-- Authentication Links -->
-            @guest
-              <a class="button no-underline mr-3 is-outlined" href="{{ route('login') }}">{{ __('Login') }}</a>
+                <div>
+                    <div class="flex items-center navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            <a class="button no-underline mr-3 is-outlined"
+                               href="{{ route('login') }}">{{ __('Login') }}</a>
 
-              @if (Route::has('register'))
-                <a class="button no-underline" href="{{ route('register') }}">{{ __('Register') }}</a>
-              @endif
-            @else
-              <dropdown align="right" width="200px">
-                <template v-slot:trigger>
-                  <button class="flex items-center text-default text-sm focus:outline-none">
-                    {{ auth()->user()->email }}
-                  </button>
-                </template>
+                            @if (Route::has('register'))
+                                <a class="button no-underline" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            @endif
+                        @else
+                            <dropdown align="right" width="200px">
+                                <template v-slot:trigger>
+                                    <button class="flex items-center text-default text-sm focus:outline-none">
+                                        {{ auth()->user()->email }}
+                                    </button>
+                                </template>
 
-                <template v-slot:default>
-                  <span
-                    class="dropdown-menu-link cursor-pointer"
-                    onclick="javascript: document.querySelector('#logout-form').submit()"
-                  >
+                                <template v-slot:default>
+                                    @if(auth()->user()->can('dostęp do panelu'))
+                                        <a
+                                            class="dropdown-menu-link"
+                                            href="{{ route('admin.dashboard') }}"
+                                        >
+                                            Panel zarzadzania
+                                        </a>
+                                    @endif
+                                    <span
+                                        class="dropdown-menu-link cursor-pointer"
+                                        onclick="javascript: document.querySelector('#logout-form').submit()"
+                                    >
                     Wyloguj
                   </span>
 
-                  <form id="logout-form" method="POST" action="/logout">
-                    @csrf
-                  </form>
-                </template>
-              </dropdown>
+                                    <form id="logout-form" method="POST" action="/logout">
+                                        @csrf
+                                    </form>
+                                </template>
+                            </dropdown>
 
-            @endguest
-          </div>
+                        @endguest
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
-  <main class="container mx-auto p-4">
-    @yield('content')
-  </main>
+    <main class="container mx-auto p-4">
+        @yield('content')
+    </main>
 </div>
 
 @yield('footer')

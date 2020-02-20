@@ -32,6 +32,6 @@ class MembershipPaymentsController extends Controller
             },
         ])->get();
 
-        return view('admin.membership_payments.index', compact('payments'));
+        return view('admin.membershipPayments.index', compact('payments'));
     }
 }

@@ -6,27 +6,24 @@
     <table id="table" class="table table-bordered table-hover display">
         <thead>
         <tr>
-            <th>Imie i nazwisko</th>
-            <th>Email</th>
-            <th>Oddział</th>
-            <th>Status</th>
-            <th>Rodzaj</th>
+            <th>Nazwa</th>
+            <th>Prezes</th>
+            <th>Sekretarz</th>
+            <th>Skarbnik</th>
             <th>Akcje</th>
         </tr>
         </thead>
 
         <tbody>
-        @foreach($users as $user)
+        @foreach($departments as $department)
             <tr>
-                <td>{{ $user->profile ? $user->profile->last_name . ' ' . $user->profile->first_name : '' }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->department ? $user->department->name : ''}}</td>
-                <td>{{ __($user->membership_status) }}</td>
-                <td>{{ __($user->membership_kind) }}</td>
+                <td>{{ $department->name }}</td>
+                <td>{{ $department->president ? $department->president->profile->first_name . ' ' . $department->president->profile->last_name : '' }}</td>
+                <td>{{ $department->secretary ? $department->secretary->profile->first_name . ' ' . $department->secretary->profile->last_name : '' }}</td>
+                <td>{{ $department->paymaster ? $department->paymaster->profile->first_name . ' ' . $department->paymaster->profile->last_name : '' }}</td>
                 <td width="100">
                     <a href=""><i class="far fa-eye"></i></a>
                     <a href=""><i class="far fa-edit"></i></a>
-                    <a href=""><i class="far fa-paper-plane"></i></a>
                     <a href=""><i class="far fa-trash-alt"></i></a>
                 </td>
             </tr>
@@ -35,11 +32,10 @@
 
         <tfoot>
         <tr>
-            <th>Imie i nazwisko</th>
-            <th>Email</th>
-            <th>Oddział</th>
-            <th>Status</th>
-            <th>Rodzaj</th>
+            <th>Nazwa</th>
+            <th>Prezes</th>
+            <th>Sekretarz</th>
+            <th>Skarbnik</th>
             <th>Akcje</th>
         </tr>
         </tfoot>
@@ -61,7 +57,7 @@
             className: 'btn btn-primary btn-sm',
             title: null,
             exportOptions: {
-              columns: [0, 1, 2, 3, 4]
+              columns: [0, 1, 2, 3]
             }
           }
         ],

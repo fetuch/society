@@ -31,6 +31,6 @@ class MembershipPaymentsDashboardController extends Controller
             },
         ])->get();
 
-        return view('admin.membership_payments.dashboard', compact('departments'));
+        return view('admin.membershipPayments.dashboard', compact('departments'));
     }
 }

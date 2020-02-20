@@ -28,6 +28,5 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
         'membership_kind' => $rand > 3 ? 'default' : 'resident',
         'membership_status' => $rand > 3 ? $faker->randomElement($array = array('active', 'warned', 'suspended')) : null,
-        'title' => $rand > 3 ? 'dr' : 'prof.',
     ];
 });
