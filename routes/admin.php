@@ -2,6 +2,8 @@
 Route::name('admin.')->prefix('admin')->middleware(['auth', 'permission:dostęp do panelu'])->group(function () {
     Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
 
+    Route::post('users/{user}/notify', 'Admin\UserNotificationsController@store')->name('notify-user');
+
     Route::resource('users', 'Admin\UsersController');
 
     Route::resource('departments', 'Admin\DepartmentsController');
@@ -15,7 +17,6 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'permission:dostęp 
     Route::resource('articles', 'Admin\ArticlesController');
 
     Route::resource('calendar', 'Admin\CalendarController');
-
 
 });
 

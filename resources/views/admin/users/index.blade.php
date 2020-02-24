@@ -26,7 +26,7 @@
                 <td width="100">
                     <a href=""><i class="far fa-eye"></i></a>
                     <a href=""><i class="far fa-edit"></i></a>
-                    <a href=""><i class="far fa-paper-plane"></i></a>
+                    <a href=""><i class="far fa-paper-plane" @click.prevent="$modal.show('new-message', { user: {{$user}}, endpoint: '{{route('admin.notify-user', ['user' => $user])}}' })"></i></a>
                     <a href=""><i class="far fa-trash-alt"></i></a>
                 </td>
             </tr>
@@ -44,6 +44,8 @@
         </tr>
         </tfoot>
     </table>
+
+    <new-message-modal></new-message-modal>
 @endsection
 
 @section('footer')

@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration
       $table->unsignedBigInteger('department_id')->nullable();
       $table->enum('membership_kind', ['default', 'resident'])->nullable();
       $table->enum('membership_status', ['active', 'warned', 'suspended'])->nullable();
-      $table->enum('title', ['dr', 'prof.'])->nullable();
       $table->string('email', 40)->nullable();
       $table->timestamp('email_verified_at')->nullable();
       $table->string('password')->nullable();
